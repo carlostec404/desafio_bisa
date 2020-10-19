@@ -2,7 +2,7 @@
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="h2">Contas</h1>
 		<div class="btn-group mr-2">
-			<a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus-square"></i> Conta</a>
+			<a href="<?= base_url()?>movimentacao/add" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus-square"></i> Movimentação</a>
 		</div>
 	</div>
 
@@ -27,7 +27,7 @@
 					<th></th>
 					<th></th>
 					<th></th>
-					<th><a href=""><i class="fas fa-download"></i></a></th>
+					<th><a href="<?= base_url()?>movimenatcao/relatorio"><i class="fas fa-download"></i></a></th>
 				</tr>  
 			</tbody>
 		</table>

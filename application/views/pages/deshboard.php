@@ -16,21 +16,19 @@
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Descrição</th>
-          <th>Saldo</th>
-          <th>Ações</th>
+					<th>Descrição da Conta</th>
+					<th>Saldo</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
         <?php foreach($contas as $conta) :?>
           <tr>
-            <td><?= $conta['id'] ?></td>
             <td><?= $conta['descricao'] ?></td>
             <td><?= number_format($conta['saldo'],2,",",".") ?></td>
             <td>
-				<a href=""><i class="fas fa-trash-alt" style="color:red;"></i></a>
-				<a href=""><i class="fas fa-edit"></i></a>
+			<a href="javascript:goDelete(<?= $conta['id'] ?>)"><i class=" btn fas fa-trash-alt" style="color:red;"></i></a>
+				<a href="<?= base_url()?>contas/edit/<?= $conta['id'] ?>"><i class="btn fas fa-edit"></i></a>
 			</td>
           </tr>
         <?php endforeach; ?>
@@ -46,12 +44,11 @@
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>Id</th>
 					<th>Descrição</th>
 					<th>Tipo da Movimentação</th>
-          <th>Valor</th>
-          <th>Data da Movimentação</th>
-          <th>Conta Bancaria</th>
+					<th>Valor</th>
+					<th>Data da Movimentação</th>
+					<th>Conta Bancaria</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,6 +57,3 @@
 		</table>
 	</div>
 </main>
-
-
-<

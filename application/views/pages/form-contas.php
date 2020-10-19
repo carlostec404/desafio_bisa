@@ -5,21 +5,21 @@
 
 			<div class="col-md-12">
 				<?php if(isset($conta)): ?>
-					<form action="<?= base_url('')?>contas/update/<?= $conta['id'] ?>" method="post">
+					<form action="<?= base_url()?>contas/update/<?= $conta['id'] ?>" method="post">
                 <?php else:?>	
-                <form action="<?= base_url('')?>contas/store" method="post">
+                <form action="<?= base_url()?>contas/store" method="post">
                 <?php endif; ?>    
 
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="name">Descrição</label>
-							<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Ex: Banco do Brasil" required value="<?= isset($contas) ? $contas["descricao"]: ""?>">
+							<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Ex: Banco do Brasil" required value="<?= isset($conta) ? $conta["descricao"]: ""?>">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="saldo">Saldo</label>
-							<input type="text" class="form-control" name="saldo" id="saldo" placeholder="Ex: 2500,00" required value="<?= isset($contas) ? $contas['saldo'] : ""?>">
+							<input type="text" class="form-control" name="saldo" id="saldo" placeholder="Ex: 2500,00" required value="<?= isset($conta) ? $conta['saldo'] : ""?>">
 						</div>
 					</div>
 					<div class="col-md-6">

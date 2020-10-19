@@ -15,9 +15,17 @@
           ))->row_array();
         }
 
-        public function update($id, $contas){
+        public function update($id, $conta){
           $this->db->where("id", $id);
-          return $this->db->update("tb_conta", $contas); 
+          
+          return $this->db->update("tb_conta", $conta);
+        }
+
+        public function destroy($id){
+          $this->db->where("id", $id);
+          return $this->db->delete("tb_conta");
+
+          redirect("contas");
         }
     }
 ?>

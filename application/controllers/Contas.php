@@ -3,9 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Contas extends CI_Controller {
 
+	public function __construct(){
+		parent::__construct();
+		$this->load->model("contas_model");
+	}
+
 	public function index()
 	{
-		$this->load->model("contas_model");
+		
 
 		$data["contas"]= $this->contas_model->index();
 		$data['title'] = "Contas - Gestão de Gastos";
@@ -34,22 +39,20 @@ class Contas extends CI_Controller {
 	public function store(){
 
 		$contas = $_POST;
-		$this->load->model("contas_model");
+		$contas["user_id"] = '1';
+		
 		$this->contas_model->store($contas);
 
 		redirect("contas");
-
-
 	}
 
 	public function edit($id){
-		$this->load->model("contas_model");
-
-		$data["contas"]= $this->contas_model->show($id);
-		$data['title'] = "Editar Contas - Gestão de Gastos";
-		
 		
 
+		$data["conta"]= $this->contas_model->show($id);
+		$data['title'] = "Editar Contas";
+
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/nav-top', $data);
 		$this->load->view('pages/form-contas', $data);
@@ -58,12 +61,18 @@ class Contas extends CI_Controller {
 	}
 
 	public function update($id){
-		
-		$this->load->model("contas_model");
-		
-		$contas = $_POST;
-		$this->contas_model->update($id, $contas);
+	
+		$conta = $_POST;
+		$this->contas_model->update($id, $conta);
+		redirect("contas");
 
+	}
+
+	public function delete($id){
+	
+		$conta = $_POST;
+		$this->contas_model->destroy($id);
 		redirect("contas");
 	}
+
 }
